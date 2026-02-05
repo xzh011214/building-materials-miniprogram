@@ -1,0 +1,38 @@
+<navbar pageTitle="购物车">
+  <view slot="right" class="cart-edit">编辑</view>
+</navbar>
+
+<view class="cart-page">
+  <view class="cart-list">
+    <view class="cart-item" wx:for="{{cartItems}}" wx:key="index">
+      <view class="cart-item-check">
+        <view class="check-circle checked"></view>
+      </view>
+      <image class="cart-item-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="cart-item-info">
+        <text class="cart-item-title">{{item.name}}</text>
+        <text class="cart-item-spec">{{item.spec}}</text>
+        <view class="cart-item-footer">
+          <text class="cart-item-price">¥{{item.price}}</text>
+          <view class="cart-qty">
+            <view class="qty-btn" bindtap="decreaseQuantity" data-index="{{index}}">-</view>
+            <view class="qty-count">{{item.quantity}}</view>
+            <view class="qty-btn" bindtap="increaseQuantity" data-index="{{index}}">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cart-footer">
+    <view class="footer-left">
+      <view class="check-circle checked"></view>
+      <text>全选</text>
+    </view>
+    <view class="footer-mid">
+      <text class="footer-label">合计</text>
+      <text class="footer-price">¥{{totalPrice}}</text>
+    </view>
+    <view class="footer-btn">去结算</view>
+  </view>
+</view>

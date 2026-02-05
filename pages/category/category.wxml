@@ -1,0 +1,29 @@
+<navbar pageTitle="分类"></navbar>
+
+<view class="category-page">
+  <view class="category-search" bindtap="goSearch">
+    <view class="search-icon"></view>
+    <text class="search-text">搜索品类与品牌</text>
+  </view>
+
+  <view class="category-body">
+    <view class="category-sidebar">
+      <view class="category-item {{index === 0 ? 'active' : ''}}" wx:for="{{categories}}" wx:key="index">
+        <text>{{item}}</text>
+      </view>
+    </view>
+    <view class="category-content">
+      <view class="category-banner">
+        <image src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=building%20materials%20category%20banner%2C%20professional%20style%2C%20clean%20design&image_size=landscape_16_9" mode="aspectFill"></image>
+        <view class="banner-mask"></view>
+        <view class="banner-text">精选建材专区</view>
+      </view>
+      <view class="category-products">
+        <view class="product-card" wx:for="{{products}}" wx:key="index">
+          <image src="{{item.image}}" mode="aspectFill"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

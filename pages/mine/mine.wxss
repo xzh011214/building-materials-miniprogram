@@ -1,0 +1,135 @@
+/**mine.wxss**/
+page {
+  min-height: 100vh;
+  background: #f6f8fc;
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #1f2a37;
+}
+
+.mine-settings {
+  font-size: 12px;
+  color: #2c6cff;
+}
+
+.mine-page {
+  padding: 12px;
+}
+
+.profile-card {
+  display: flex;
+  gap: 14px;
+  background: linear-gradient(135deg, #1f2a37 0%, #2a3748 100%);
+  border-radius: 18px;
+  padding: 16px;
+  color: #ffffff;
+  box-shadow: 0 18px 30px rgba(24, 44, 76, 0.22);
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-meta {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-num {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.service-card {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 12px 24px rgba(24, 44, 76, 0.08);
+}
+
+.service-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.service-item {
+  background: #f6f8fc;
+  border-radius: 12px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.service-icon {
+  font-size: 11px;
+  color: #4a586a;
+}
+
+.menu-card {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 4px 0;
+  box-shadow: 0 12px 24px rgba(24, 44, 76, 0.08);
+}
+
+.menu-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-text {
+  font-size: 13px;
+  color: #1f2a37;
+}
+
+.menu-arrow {
+  font-size: 12px;
+  color: #9aa7b8;
+}

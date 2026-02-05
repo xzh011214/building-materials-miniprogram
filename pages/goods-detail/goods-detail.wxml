@@ -1,0 +1,32 @@
+<navbar pageTitle="商品详情"></navbar>
+
+<view class="detail-page">
+	<view class="hero-card">
+		<image class="hero-image" src="{{product.image}}" mode="aspectFill"></image>
+		<view class="hero-badge">10</view>
+	</view>
+
+	<view class="detail-card">
+		<text class="detail-title">{{product.name}}</text>
+		<view class="detail-price-row">
+			<text class="detail-price">¥{{product.price}}</text>
+			<text class="detail-origin">原价 ¥{{product.originalPrice}}</text>
+		</view>
+		<view class="detail-tags">
+			<text class="tag" wx:for="{{product.tags}}" wx:key="index">{{item}}</text>
+		</view>
+	</view>
+
+	<view class="detail-card">
+		<text class="section-title">产品参数</text>
+		<view class="param-row" wx:for="{{product.params}}" wx:key="name">
+			<text class="param-name">{{item.name}}</text>
+			<text class="param-value">{{item.value}}</text>
+		</view>
+	</view>
+</view>
+
+<view class="detail-footer">
+	<view class="footer-action ghost">加入购物车</view>
+	<view class="footer-action primary">立即购买</view>
+</view>

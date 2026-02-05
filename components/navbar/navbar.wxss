@@ -1,0 +1,210 @@
+/* 导航栏容器：固定顶部+最高层级 */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 999;
+  box-sizing: border-box;
+  box-shadow: 0 6px 16px rgba(24, 44, 76, 0.08);
+  transition: background-color 0.3s ease;
+}
+/* 透明导航栏样式 */
+.navbar-container.navbar-transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+.navbar-container.navbar-solid {
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(24, 44, 76, 0.08);
+}
+/* 浅色文字（适配深色背景） */
+.navbar-container.navbar-light .title-text,
+.navbar-container.navbar-light .back-icon,
+.navbar-container.navbar-light .back-text,
+.navbar-container.navbar-light .nav-logo {
+  color: #ffffff;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* 状态栏占位（仅占高度） */
+.status-bar {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 导航栏主体：弹性+垂直居中 */
+.navbar-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 左侧返回按钮 */
+.navbar-left {
+  position: absolute;
+  left: 16rpx;
+  top: 0;
+  bottom: 0;
+  transform: none;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  padding: 8rpx 0;
+}
+.back-icon {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.back-text {
+  font-size: 28rpx;
+  margin-left: 8rpx;
+}
+
+/* 首页品牌+搜索 */
+.home-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+/* 非透明时改为深色文本 */
+.navbar-container.navbar-solid .home-brand {
+  color: #1f2a37;
+}
+
+.home-logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+}
+
+.home-logo-block {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #6aa2ff 0%, #2c6cff 100%);
+  box-shadow: 0 6px 12px rgba(20, 34, 64, 0.18);
+}
+
+.home-title {
+  font-size: 13px;
+  color: inherit;
+}
+
+.home-search {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 15px;
+  padding: 0 10px;
+  box-shadow: 0 8px 18px rgba(20, 34, 64, 0.12);
+  backdrop-filter: blur(6px);
+}
+/* 非透明时使用不透背景，避免穿透 */
+.navbar-container.navbar-solid .home-search {
+  background: #ffffff;
+  backdrop-filter: none;
+}
+
+.home-search-icon {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #8f9bad;
+  border-radius: 50%;
+  position: relative;
+}
+
+.home-search-icon::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 2px;
+  background: #8f9bad;
+  right: -5px;
+  bottom: -4px;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+.home-search-text {
+  font-size: 12px;
+  color: #8f9bad;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 首页logo容器（垂直居中） */
+.nav-brand {
+  position: absolute;
+  left: 16rpx;
+  top: 0;
+  bottom: 0;
+  transform: none;
+  z-index: 2;
+}
+/* logo图片样式（可按需调整宽高） */
+.nav-logo {
+  width: 120rpx;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* 中间标题（居中显示） */
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: calc(100% - 200rpx);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 1;
+}
+.title-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 右侧预留区域（与胶囊对齐） */
+.navbar-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: none;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+/* 页面内容占位 */
+.page-content-placeholder {
+  width: 100%;
+  box-sizing: border-box;
+}

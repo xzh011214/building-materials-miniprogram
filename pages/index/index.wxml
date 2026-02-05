@@ -1,0 +1,61 @@
+<navbar 
+  isHome="{{true}}" 
+  pageTitle="" 
+  transparent="{{transparent}}" 
+  lightText="{{transparent}}" 
+  showHomeSearch="{{true}}" 
+  homeTitle="建筑优选" 
+  homeSearchPlaceholder="搜索瓷砖、涂料、五金"
+  homeLogoUrl="/images/icon/建材.svg" 
+  bind:search="goSearch">
+</navbar>
+
+<view class="hero-bg">
+  <image class="hero-image" src="{{heroImage}}" mode="aspectFill"></image>
+  <view class="hero-overlay"></view>
+</view>
+
+<view class="page">
+  <view class="hero-section">
+    <view class="hero-swiper">
+      <swiper autoplay="true" interval="3200" circular="true" duration="600">
+        <swiper-item wx:for="{{banners}}" wx:key="index">
+          <image class="hero-banner" src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="promo-card">
+    <view class="promo-info">
+      <text class="promo-title">开工大吉·家装季</text>
+      <text class="promo-sub">全场建材 8.5 折起</text>
+      <view class="promo-btn">立即抢购</view>
+    </view>
+    <view class="promo-art"></view>
+  </view>
+
+  <view class="quick-grid">
+    <view class="quick-item" wx:for="{{categories}}" wx:key="id">
+      <image class="quick-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <text class="quick-text">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门爆款</text>
+      <text class="section-more">查看更多</text>
+    </view>
+    <view class="hot-list">
+      <view class="hot-card" wx:for="{{hotProducts}}" wx:key="id">
+        <image class="hot-image" src="{{item.image}}" mode="aspectFill"></image>
+        <text class="hot-name">{{item.name}}</text>
+        <view class="hot-meta">
+          <text class="hot-price">¥{{item.price}}</text>
+          <text class="hot-sold">已售 {{item.sold}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

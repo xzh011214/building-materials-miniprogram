@@ -1,0 +1,64 @@
+<navbar pageTitle="我的">
+  <view slot="right" class="mine-settings">设置</view>
+</navbar>
+
+<view class="mine-page">
+  <view class="profile-card">
+    <image class="profile-avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+    <view class="profile-main">
+      <text class="profile-name">{{userInfo.name}}</text>
+      <text class="profile-meta">ID {{userInfo.id}} · {{userInfo.level}}</text>
+      <view class="profile-stats">
+        <view class="stat-item">
+          <text class="stat-num">2</text>
+          <text class="stat-label">待付款</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">5</text>
+          <text class="stat-label">进行中</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">12</text>
+          <text class="stat-label">待评价</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">3</text>
+          <text class="stat-label">优惠券</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="service-card">
+    <view class="service-title">装修服务</view>
+    <view class="service-grid">
+      <view class="service-item">
+        <view class="service-icon">施工测量</view>
+      </view>
+      <view class="service-item">
+        <view class="service-icon">方案设计</view>
+      </view>
+      <view class="service-item">
+        <view class="service-icon">全屋定制</view>
+      </view>
+      <view class="service-item">
+        <view class="service-icon">施工进度</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-card">
+    <view class="menu-row">
+      <text class="menu-text">收货地址管理</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-row">
+      <text class="menu-text">领券中心</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-row">
+      <text class="menu-text">在线客服</text>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+</view>

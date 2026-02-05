@@ -1,0 +1,43 @@
+<view class="navbar-container {{transparent ? 'navbar-transparent' : ''}} {{lightText ? 'navbar-light' : ''}}" 
+  style="height: {{navBarHeight}}px;">
+  <!-- 状态栏占位（适配刘海屏） -->
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  
+  <!-- 导航栏主体（包含logo/返回按钮+标题） -->
+  <view class="navbar-main" style="height: {{navBarMainHeight}}px; padding: {{menuBottom}}px {{menuRight + menuWidth + 16}}px {{menuBottom}}px 0;">
+    <!-- 左侧区域：默认返回按钮，支持插槽自定义 -->
+    <view class="navbar-left" style="right: {{menuWidth + menuRight * 2 + 8}}px;">
+      <view wx:if="{{isHome && showHomeSearch}}" class="home-left">
+        <view class="home-brand">
+          <image wx:if="{{homeLogoUrl || logoUrl}}" class="home-logo" src="{{homeLogoUrl || logoUrl}}" mode="aspectFit"></image>
+          <view wx:else class="home-logo-block"></view>
+          <text class="home-title">{{homeTitle}}</text>
+        </view>
+        <view class="home-search" bindtap="handleSearch">
+          <view class="home-search-icon"></view>
+          <text class="home-search-text">{{homeSearchPlaceholder}}</text>
+        </view>
+      </view>
+      <view wx:elif="{{!isHome}}" class="back-btn" bindtap="handleBack">
+        <text class="back-icon">←</text>
+        <text class="back-text" wx:if="{{showBackText}}">返回</text>
+      </view>
+      <slot wx:else name="left"></slot>
+    </view>
+
+    <!-- 中间区域：页面标题，支持插槽自定义 -->
+    <view class="navbar-center">
+      <slot name="center">
+        <text class="title-text">{{pageTitle}}</text>
+      </slot>
+    </view>
+
+    <!-- 右侧区域：胶囊对齐区域，支持插槽自定义 -->
+    <view class="navbar-right" style="width: {{menuRight + menuWidth + 16}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;">
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>
+
+<!-- 页面内容占位（防止导航栏遮挡页面） -->
+<view class="page-content-placeholder" style="height: {{navBarHeight}}px;"></view>
