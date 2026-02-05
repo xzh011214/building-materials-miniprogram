@@ -1,8 +1,8 @@
 <navbar 
   isHome="{{true}}" 
   pageTitle="" 
-  transparent="{{transparent}}" 
-  lightText="{{transparent}}" 
+  transparent="{{true}}" 
+  lightText="{{true}}" 
   showHomeSearch="{{true}}" 
   homeTitle="建筑优选" 
   homeSearchPlaceholder="搜索瓷砖、涂料、五金"

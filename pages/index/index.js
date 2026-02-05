@@ -1,10 +1,6 @@
 // index.js
 Page({
   data: {
-    // 导航栏是否透明，滚动超过阈值后变为不透明
-    transparent: true,
-    // hero 区域高度（px），用于判断吸顶阈值
-    heroHeight: 230,
     heroImage: 'https://imgs.699pic.com/images/500/413/982.jpg!seo.v1',
     banners: [
       'https://imgs.699pic.com/images/500/444/063.jpg!list2x.v1',
@@ -40,14 +36,6 @@ Page({
     ]
   },
   onLoad() {},
-  onPageScroll(e) {
-    const scrollTop = e.scrollTop || 0;
-    // 滚动超过少量距离即变为不透明，避免看到下层内容
-    const shouldBeTransparent = scrollTop < 10;
-    if (shouldBeTransparent !== this.data.transparent) {
-      this.setData({ transparent: shouldBeTransparent });
-    }
-  },
   goSearch() {
     wx.showToast({ title: '功能开发中', icon: 'none' });
   }
