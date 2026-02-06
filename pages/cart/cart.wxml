@@ -1,5 +1,13 @@
-<navbar pageTitle="购物车">
-  <view slot="right" class="cart-edit">编辑</view>
+<navbar 
+  isHome="{{false}}" 
+  pageTitle="分类" 
+  transparent="{{false}}" 
+  lightText="{{false}}" 
+  showHomeSearch="{{true}}"
+  homeTitle="购物车"
+  homeLogoUrl="/images/icon/建材.svg"
+  homeTitleColor="#333333"
+  bind:search="goSearch">
 </navbar>
 
 <view class="cart-page">

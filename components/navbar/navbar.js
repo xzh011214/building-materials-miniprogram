@@ -10,6 +10,11 @@ Component({
       type: Boolean,
       value: false
     },
+    // 是否显示返回按钮（新增：手动控制返回按钮）
+    showBackBtn: {
+      type: Boolean,
+      value: false
+    },
     // 是否显示返回按钮文字
     showBackText: {
       type: Boolean,
@@ -34,6 +39,11 @@ Component({
     homeTitle: {
       type: String,
       value: '建筑优选'
+    },
+     // 首页品牌标题颜色
+    homeTitleColor: {
+      type: String,
+      value: ''
     },
     // 首页搜索占位
     homeSearchPlaceholder: {
@@ -62,28 +72,28 @@ Component({
   },
   lifetimes: {
     attached() {
-  // 读取全局导航栏适配数据
-  const app = getApp();
-  const globalData = app.globalData;
-  this.setData({
-    navBarHeight: globalData.navBarHeight,
-    statusBarHeight: globalData.statusBarHeight,
-    menuBottom: globalData.menuBottom,
-    menuRight: globalData.menuRight,
-    menuHeight: globalData.menuHeight,
-    menuWidth: globalData.menuWidth,
-    navBarMainHeight: globalData.navBarHeight - globalData.statusBarHeight
-  });
-  
-  // 添加调试日志
-  console.log('=== navbar组件数据 ===');
-  console.log('isHome:', this.properties.isHome);
-  console.log('showHomeSearch:', this.properties.showHomeSearch);
-  console.log('homeTitle:', this.properties.homeTitle);
-  console.log('homeSearchPlaceholder:', this.properties.homeSearchPlaceholder);
-  console.log('组件data:', this.data);
-  console.log('组件properties:', this.properties);
-}
+      // 读取全局导航栏适配数据
+      const app = getApp();
+      const globalData = app.globalData;
+      this.setData({
+        navBarHeight: globalData.navBarHeight,
+        statusBarHeight: globalData.statusBarHeight,
+        menuBottom: globalData.menuBottom,
+        menuRight: globalData.menuRight,
+        menuHeight: globalData.menuHeight,
+        menuWidth: globalData.menuWidth,
+        navBarMainHeight: globalData.navBarHeight - globalData.statusBarHeight
+      });
+      
+      // 添加调试日志
+      console.log('=== navbar组件数据 ===');
+      console.log('isHome:', this.properties.isHome);
+      console.log('showHomeSearch:', this.properties.showHomeSearch);
+      console.log('homeTitle:', this.properties.homeTitle);
+      console.log('homeSearchPlaceholder:', this.properties.homeSearchPlaceholder);
+      console.log('组件data:', this.data);
+      console.log('组件properties:', this.properties);
+    }
   },
   methods: {
     // 返回按钮逻辑

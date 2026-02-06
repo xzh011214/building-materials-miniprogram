@@ -1,13 +1,17 @@
 /**category.wxss**/
 page {
-  min-height: 100vh;
+  height: 100vh;
   background: #f6f8fc;
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   color: #1f2a37;
 }
 
 .category-page {
+  height: 100vh;
   padding: 12px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .category-search {
@@ -47,11 +51,11 @@ page {
 }
 
 .category-body {
-  margin-top: 14px;
   background: #ffffff;
   border-radius: 16px;
   display: flex;
-  min-height: 420px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   box-shadow: 0 12px 26px rgba(24, 44, 76, 0.08);
 }
@@ -59,8 +63,10 @@ page {
 .category-sidebar {
   width: 92px;
   background: #f2f5fb;
-  padding: 8px 0;
+  height: 100%;
 }
+
+
 
 .category-item {
   height: 48px;
@@ -90,6 +96,10 @@ page {
 
 .category-content {
   flex: 1;
+  height: 100%;
+}
+
+.category-content-inner {
   padding: 14px;
 }
 
@@ -125,6 +135,15 @@ page {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+}
+
+.category-empty {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b8;
+  font-size: 12px;
 }
 
 .product-card {

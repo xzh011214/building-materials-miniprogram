@@ -7,21 +7,44 @@
   <view class="navbar-main" style="height: {{navBarMainHeight}}px; padding: {{menuBottom}}px {{menuRight + menuWidth + 16}}px {{menuBottom}}px 0;">
     <!-- 左侧区域：默认返回按钮，支持插槽自定义 -->
     <view class="navbar-left" style="right: {{menuWidth + menuRight * 2 + 8}}px;">
+      <!-- 情况1：首页且显示搜索框 -->
       <view wx:if="{{isHome && showHomeSearch}}" class="home-left">
         <view class="home-brand">
           <image wx:if="{{homeLogoUrl || logoUrl}}" class="home-logo" src="{{homeLogoUrl || logoUrl}}" mode="aspectFit"></image>
           <view wx:else class="home-logo-block"></view>
-          <text class="home-title">{{homeTitle}}</text>
+          <text class="home-title" style="{{homeTitleColor ? 'color: ' + homeTitleColor : ''}}">{{homeTitle}}</text>
         </view>
         <view class="home-search" bindtap="handleSearch">
           <view class="home-search-icon"></view>
           <text class="home-search-text">{{homeSearchPlaceholder}}</text>
         </view>
       </view>
-      <view wx:elif="{{!isHome}}" class="back-btn" bindtap="handleBack">
+      
+      <!-- 情况2：首页不显示搜索框，只显示logo+标题 -->
+      <view wx:elif="{{isHome && !showHomeSearch}}" class="home-left">
+        <view class="home-brand">
+          <image wx:if="{{homeLogoUrl || logoUrl}}" class="home-logo" src="{{homeLogoUrl || logoUrl}}" mode="aspectFit"></image>
+          <view wx:else class="home-logo-block"></view>
+          <text class="home-title" style="{{homeTitleColor ? 'color: ' + homeTitleColor : ''}}">{{homeTitle}}</text>
+        </view>
+      </view>
+      
+      <!-- 情况3：非首页显示搜索框（显示logo+标题） -->
+      <view wx:elif="{{!isHome && showHomeSearch}}" class="home-left">
+        <view class="home-brand">
+          <image wx:if="{{homeLogoUrl || logoUrl}}" class="home-logo" src="{{homeLogoUrl || logoUrl}}" mode="aspectFit"></image>
+          <view wx:else class="home-logo-block"></view>
+          <text class="home-title" style="{{homeTitleColor ? 'color: ' + homeTitleColor : ''}}">{{homeTitle}}</text>
+        </view>
+      </view>
+      
+      <!-- 情况4：非首页不显示搜索框（显示返回按钮） -->
+      <view wx:elif="{{!isHome && !showHomeSearch}}" class="back-btn" bindtap="handleBack">
         <text class="back-icon">←</text>
         <text class="back-text" wx:if="{{showBackText}}">返回</text>
       </view>
+      
+      <!-- 情况5：使用插槽自定义 -->
       <slot wx:else name="left"></slot>
     </view>
 
