@@ -38,7 +38,13 @@
           <view class="banner-text">{{activeCategory.bannerText}}</view>
         </view>
         <view class="category-products" wx:if="{{activeCategory}}">
-          <view class="product-card" wx:for="{{activeCategory.products}}" wx:key="name">
+          <view
+            class="product-card"
+            wx:for="{{activeCategory.products}}"
+            wx:key="name"
+            data-name="{{item.name}}"
+            bindtap="goCategoryDetail"
+          >
             <image src="{{item.image}}" mode="aspectFill"></image>
             <text>{{item.name}}</text>
           </view>

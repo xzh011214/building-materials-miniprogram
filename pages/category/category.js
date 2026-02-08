@@ -117,5 +117,10 @@ Page({
   },
   goSearch() {
     wx.showToast({ title: '功能开发中', icon: 'none' });
+  },
+  goCategoryDetail(event) {
+    const name = event.currentTarget.dataset.name || '瓷砖';
+    const url = `/pages/category-detail/category-detail?category=${encodeURIComponent(name)}`;
+    wx.navigateTo({ url });
   }
 })

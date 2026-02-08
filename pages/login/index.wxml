@@ -1,0 +1,153 @@
+<view class="header">
+  <view class="overlay"> 
+    <view class="header-title">欢迎使用恒源建材</view>
+    <view class="header-description">恒源建材观察页面是一个分享和探索建材动态的平台
+    </view>
+  </view>
+</view>
+
+<!-- <view class="welcome-text-title">Welcome</view>
+
+<!-- <image src="https://img.freepik.com/free-photo/curious-boy-using-magnifying-glass_23-2147636813.jpg" 
+       class="login-pic" mode="widthFix">
+</image> -->
+
+<view class="welcome-text-des"> USER LOGIN</view>
+<view wx:if="{{loginStatus === 0}}" class="check-license">
+  <button class="wechat-login" 
+          open-type="getRealtimePhoneNumber" 
+          bindgetrealtimephonenumber="getPhoneNumber">
+    微信一键登陆
+  </button>
+</view>
+
+<view wx:if="{{loginStatus === 0}}" 
+  class="wechat-login" 
+  data-status="{{1}}" 
+  bindtap="changeLoginMode">
+  手机号验证登陆
+</view>
+<view class="l-row security-box" style="{{loginStatus===2?'margin-bottom:80rpx':''}}"  wx:if="{{showMoreOptions}}">
+  <t-checkbox style="padding:0" checked="{{agreeLicense}}" bindchange="getAgreeLicense" />
+  <view class="security-text" style="width:80%;margin-top:2rpx">
+    <text bindtap="getAgreeLicense">我已经阅读并同意</text>
+    <text style="color:#FF6B6B" bindtap="goUserLicense">用户协议和隐私政策</text>
+    <!-- <text bindtap="getAgreeLicense">，未注册绑定的手机号验证成功后将会自动注册</text> -->
+  </view>
+</view>
+
+<view class="l-row security-box" style="margin-top: auto;"  wx:if="{{showMoreOptions}}" >
+  <view class="security-text" style="width:90%;text-align: center; margin-right: 8%; font-size:25rpx">
+    <text bindtap="about"style="padding:20rpx;font-family: AlimamaFangYuanTiVF-Thin;">关于</text>
+    <text bindtap="help" style="padding:20rpx; font-family: AlimamaFangYuanTiVF-Thin;">帮助</text>
+    <text bindtap="help" style="padding:20rpx;font-family: AlimamaFangYuanTiVF-Thin;">更多</text>
+    <!-- <text bindtap="getAgreeLicense">，未注册绑定的手机号验证成功后将会自动注册</text> -->
+  </view>
+</view>
+<!-- <view class="wrapper" wx:if="{{showMoreOptions}}" style="font-weight: lighter;">
+ ———————或———————
+  <view class="button-group">
+    <button class="circle-button custom-icon" bindtap="handleCustomIconClick" >
+      <image src="" class="icon-image" />
+    </button>
+    <button class="circle-button twitter-icon" bindtap="handleTwitterIconClick">
+      <image src="" class="icon-image" />
+    </button>
+  </view>
+</view> -->
+
+
+
+
+
+
+<!-- <view class="wrapper" wx:if="{{showMoreOptions}}" >
+  <t-collapse>
+    <t-collapse-panel value="{{activeValues}}" 
+    bindchange="handleChange" header="更多登录选项" value="0" expandIcon class="hears hears-centered">
+      <view class="form-group">
+        <button class="btnapple" bindtap="loginWithApple" data-enable-with-js="true">
+          <image src="https://www.inaturalist.org/assets/google-g-logo-61516215a63dea9d0c88d79d80f5c54f2e852ff1dbbaca18e212b9c6b4f18434.svg" 
+          class="google-icon"></image>
+          <view class="btntext">使用Apple账号登陆</view>
+        </button>
+        <button class="btngoogle" bindtap="loginWithGoogle" data-enable-with-js="true">
+          <image src="https://www.inaturalist.org/assets/google-g-logo-61516215a63dea9d0c88d79d80f5c54f2e852ff1dbbaca18e212b9c6b4f18434.svg" 
+          class="google-icon"></image>
+          <view class="btntext">使用Google登录</view>
+        </button>
+      </view>
+    </t-collapse-panel>
+  </t-collapse>
+</view> -->
+
+<view style="position:relative;margin-top:40rpx;" wx:if="{{loginStatus === 1}}">
+  <view class="country-code" bindtap="changeCountryCode">
+    <view class="label-sub">国家/地区</view>
+    <view>{{countryCode}}</view>
+  </view>
+  <input class="my-input" type="number" bindinput="onChangePhoneNumber" value="{{phoneNumber}}" 
+         maxlength="{{maxPhoneNumberLength}}"  >
+  <view class="label-sub">手机号</view>
+  <view class="error-message" wx:if="{{showErrorMessage}}">请输入{{requiredLength}}位手机号码</view>
+  </input>
+
+  <view class="wechat-login" style="background:#FFFFFF; border:3rpx solid #3d3d3d;color:#3d3d3d;margin-top:30rpx"
+   bindtap="getActivityCode">
+    发送验证码
+  </view>
+  <view wx:if="{{!needPhoneCodeLogin}}"
+   class="wechat-login" 
+    style="background:#FFFFFF;border:3rpx dashed #3d3d3d;color:#3d3d3d;margin-top:60rpx"  data-status="{{0}}"  bindtap="changeLoginMode1">
+    返回
+  </view>
+</view>
+ 
+<view style="position:relative;margin-top:80rpx;" wx:if="{{loginStatus === 2}}">
+  <view class="l-row my-card-line">
+    <input wx:for="{{6}}" wx:key="index" wx:for-index="index"
+           class="active-code-input {{ (vCodeValue.length===index)&&isVFocus ?'is-input':''}} {{ (vCodeValue.length>=index+1) ?'already-input':''}}" 
+           data-code="v" type="number" 
+           value="{{vCodeValue.length>=index+1 ? vCodeValue[index] : ''}}" disabled catchtap="tapFn">
+    </input>
+  </view>
+
+  <input type="number" class="ipt" maxlength="6" focus="{{isVFocus}}" bindinput="showVCode"></input>
+  <view class="wechat-login" style="background:#ffffff;border:3rpx solid  #3d3d3d;color:#3d3d3d;margin-top:30rpx" bindtap="loginByPhoneNumberActiveCode">
+    登陆
+  </view>
+  <view class="wechat-login" style="border:3rpx solid #3d3d3d;color:#3d3d3d;margin-top:30rpx " bindtap="getActivityCode">
+    再次发送验证码 {{refreshSeconds > 0 ? '( ' + refreshSeconds + 's )' : ''}}
+  </view>
+  <view wx:if="{{!needPhoneCodeLogin}}" class="wechat-login" style="background:#ffffff;border:3rpx dashed #3d3d3d;color:#3d3d3d;margin-top:30rpx;margin-bottom:50rpx" data-status="{{0}}" bindtap="changeLoginMode">
+    返回
+  </view>
+</view>
+
+
+
+<t-popup visible="{{countryCodePopupVisible}}" bindvisible-change="onCountryCodePopupVisibleChange" placement="bottom">
+  <view class="popup-title">请选择区号</view>
+  <t-radio-group t-class="horizontal-box" value="{{countryCode}}" bindchange="onChangeCountryCode">
+    <view class="card {{countryCode === 'cn+86' ? 'card--active' : ''}}">
+      <t-icon wx:if="{{countryCode === 'cn+86'}}" name="check" t-class="card__icon" />
+      <t-radio value="cn+86" label="cn+86" icon="none" borderless />
+    </view>
+    <view class="card {{countryCode === 'mo+853' ? 'card--active' : ''}}">
+      <t-icon wx:if="{{countryCode === 'mo+853'}}" name="check" t-class="card__icon" />
+      <t-radio value="mo+853" label="mo+853" icon="none" borderless />
+    </view>
+    <view class="card {{countryCode === 'hk+852' ? 'card--active' : ''}}">
+      <t-icon wx:if="{{countryCode === 'hk+852'}}" name="check" t-class="card__icon" />
+      <t-radio value="hk+852" label="hk+852" icon="none" borderless />
+    </view>
+    <view class="card {{countryCode === 'tw+886' ? 'card--active' : ''}}">
+      <t-icon wx:if="{{countryCode === 'tw+886'}}" name="check" t-class="card__icon" />
+      <t-radio value="tw+886" label="tw+886" icon="none" borderless />
+    </view>
+  </t-radio-group>
+</t-popup>
+
+
+
+<t-message id="t-message"></t-message>

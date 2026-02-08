@@ -1,0 +1,81 @@
+<view class="category-detail">
+  <view class="filter-bar">
+    <view
+      class="filter-item {{sortType === 'comprehensive' ? 'active' : ''}}"
+      data-type="comprehensive"
+      bindtap="onFilterTap"
+    >
+      综合
+    </view>
+    <view
+      class="filter-item {{sortType === 'sales' ? 'active' : ''}}"
+      data-type="sales"
+      bindtap="onFilterTap"
+    >
+      销量
+    </view>
+    <view
+      class="filter-item {{sortType === 'price' ? 'active' : ''}}"
+      data-type="price"
+      bindtap="onFilterTap"
+    >
+      价格
+      <view class="price-arrows">
+        <text class="arrow {{sortType === 'price' && priceSort === 'asc' ? 'active' : ''}}">▲</text>
+        <text class="arrow {{sortType === 'price' && priceSort === 'desc' ? 'active' : ''}}">▼</text>
+      </view>
+    </view>
+    <view class="filter-item" bindtap="openBrandPanel">
+      品牌
+    </view>
+  </view>
+
+  <view class="goods-list">
+    <view
+      class="goods-card"
+      wx:for="{{filteredList}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goGoodsDetail"
+    >
+      <image class="goods-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="goods-info">
+        <text class="goods-name">{{item.name}}</text>
+        <view class="goods-tags">
+          <text class="goods-tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+        </view>
+        <view class="goods-meta">
+          <text class="goods-price">¥{{item.price}}</text>
+          <text class="goods-unit">/片</text>
+        </view>
+        <view class="goods-extra">
+          <text class="goods-brand">{{item.brand}}</text>
+          <text class="goods-sales">月销 {{item.sales}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="brand-mask" wx:if="{{showBrandPanel}}" bindtap="closeBrandPanel"></view>
+<view class="brand-panel" wx:if="{{showBrandPanel}}">
+  <view class="brand-header">
+    <text>选择品牌</text>
+    <text class="brand-close" bindtap="closeBrandPanel">×</text>
+  </view>
+  <view class="brand-options">
+    <view
+      class="brand-chip {{pendingBrand === item ? 'active' : ''}}"
+      wx:for="{{brandOptions}}"
+      wx:key="*this"
+      data-brand="{{item}}"
+      bindtap="selectBrand"
+    >
+      {{item}}
+    </view>
+  </view>
+  <view class="brand-footer">
+    <button class="brand-reset" bindtap="resetBrand">重置</button>
+    <button class="brand-confirm" bindtap="confirmBrand">确定</button>
+  </view>
+</view>

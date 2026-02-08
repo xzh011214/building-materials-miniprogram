@@ -5,6 +5,7 @@
     "minified": true,
     "uglifyFileName": false,
     "enhance": true,
+    "packNpmManually": true,
     "packNpmRelationList": [],
     "babelSetting": {
       "ignore": [],
@@ -22,5 +23,9 @@
     "include": []
   },
   "appid": "wx2a04e459fb995364",
-  "editorSetting": {}
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "condition": {}
 }

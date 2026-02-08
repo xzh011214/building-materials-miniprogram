@@ -1,0 +1,369 @@
+page {
+  min-height: calc(100vh - constant(safe-area-inset-bottom));
+  min-height: calc(100vh - env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+    background-color: #f7faf9;
+    /* background: linear-gradient(to right, #313631, #3b5246);  */
+    
+}
+
+
+
+
+.header {
+    margin-top: 5%;
+    background-image: url('https://img.freepik.com/free-photo/dumpy-frog-litoria-caerulea-green-leaves-dumpy-frog-branch-tree-frog-branch-amphibian-closeup_488145-3246.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 700rpx;
+    margin-left: 2%;
+    width: 95%;
+    border-radius: 50rpx;
+    color:#FFF;
+    text-align: center;
+    position: relative;
+    overflow: hidden;    
+  }
+  /* margin-top: 30rpx;
+  font-size: 30rpx;
+  font-family: 'HS San Light', sans-serif; */
+  .overlay {
+    /* background-color: rgba(50, 61, 53, 0.5); */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2rpx;
+  }
+
+  .header-title {
+    font-size: 60rpx;
+    font-weight: lighter;
+    font-style:oblique;
+    
+}
+.header-description{
+  font-size: 25rpx;
+
+}
+
+/* 增加淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.header, .overlay {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+
+
+.welcome-text-title {
+ 
+  text-align: center;
+  margin-top: 5vw;
+  margin-left: 5vw;
+  font-size: 60rpx;
+  
+}
+
+.welcome-text-des {
+    width: 100%;
+    text-align: center;
+    margin-top: 8%;
+    font-size: 40rpx;
+    color: green;
+    font-weight:bold;
+    /* font-weight: lighter; */
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.wrapper {
+    text-align: center;
+    padding-top: 15rpx;
+    color: #666;
+    margin-top: 40rpx;
+  }
+  
+  .button-group {
+    padding-top: 5%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+  }
+  
+  .circle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    margin: 0 40rpx;
+    font-weight: bold;
+    color: black;
+    border: 2rpx solid #ccc;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+    transition: all 0.3rpx ease;
+  }
+
+  .circle-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  
+  .custom-icon {
+    background-image: url('https://cdn.icon-icons.com/icons2/2429/PNG/512/facebook_logo_icon_147291.png');
+    background-size: cover; /* 使背景图像覆盖整个页面 */
+  }
+  
+  .icon-image {
+    width: 150%; /* 图标占满圆圈的宽度 */
+    height:150; /* 图标占满圆圈的高度 */
+  }
+  
+  .twitter-icon {
+    background-image: url('https://cdn.icon-icons.com/icons2/2429/PNG/512/facebook_logo_icon_147291.png');
+    background-size: cover; /* 使背景图像覆盖整个页面 */
+  
+  }
+
+.wechat-login {
+     min-width: 75%;
+     max-width: 75%;
+    height: 90rpx;
+    box-sizing: border-box;
+    padding: 0;
+    font-style:var(--td-checkbox-icon-checked-color);
+    font-family: AlimamaFangYuanTiVF-Thin;
+    font-weight: lighter;
+    /* font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans CN,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; */
+    border-radius: 40rpx;
+    background: green;
+    border: 3rpx solid #3d3d3d;
+    text-align: center;
+    line-height: 90rpx;
+    color:#fff;
+    letter-spacing: 5rpx;
+    margin: 50rpx auto 0;
+    font-size: 30rpx;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    transition: all 0.3s ease; /* 动画过渡 */
+    display: block;
+}
+    /* 鼠标悬停效果 */
+    .wechat-login:hover {
+      background: linear-gradient(135deg, #597e59, #3d5a3d);
+      transform: scale(1.05); /* 放大效果 */
+      box-shadow: 0 6rpx 12rpx rgba(0, 0, 0, 0.3); /* 更强的阴影效果 */
+    }
+  
+    /* 按下效果 */
+    .wechat-login:active {
+      background: linear-gradient(135deg, #4d6a4d, #698e6d);
+      transform: scale(0.95); /* 缩小效果 */
+      box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1); /* 减弱的阴影效果 */
+    }
+  
+.wechat-login:after {
+    border: none;
+}
+
+button.wechat-login {
+  padding: 0;
+}
+
+.text-other {
+    width: 100%;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 10rpx 0;
+    color: #a4a4a4;
+}
+
+.check-license {
+  display: block;
+  text-align: center;
+}
+
+.country-code {
+    position: relative;
+    border-top: 2rpx solid #6d6d6d;
+    border-right: 2rpx solid #6d6d6d;
+    border-left: 2rpx solid #6d6d6d;
+    border-bottom: none;
+    height: 90rpx;
+    line-height: 35rpx;
+    margin: 20rpx 5% 0 5%;
+    padding: 35rpx 20rpx 5rpx 20rpx;
+    font-size: 35rpx;
+    border-radius: 20rpx 20rpx 0 0;
+    background: #FFFFFF;
+    color: #3d3d3d;
+}
+
+.label-sub {
+    position: absolute;
+    left: 20rpx;
+    bottom: 55rpx;
+    /* top: 10rpx; */
+    font-size: 25rpx;
+    color: #909090;
+    height: 20rpx;
+}
+
+.my-input {
+    position: relative;
+    border-top: 2rpx solid #6d6d6d;
+    border-right: 2rpx solid #6d6d6d;
+    border-left: 2rpx solid #6d6d6d;
+    border-bottom: 2rpx solid #6d6d6d;
+    background: #FFFFFF;
+    color: #3d3d3d;
+    margin: 0 5% 20rpx 5%;
+    height: 90rpx;
+    line-height: 60rpx;
+    border-radius: 0 0 15rpx 15rpx;
+    padding: 35rpx 20rpx 5rpx 20rpx;
+    font-size: 35rpx;
+}
+
+.active-code-input {
+    position: relative;
+    border: 2rpx dashed #6d6d6d;
+    background: #FFFFFF;
+    color: #3d3d3d;
+    width: 12vw;
+    height: 15vw;
+    line-height: 15vw;
+    border-radius: 15rpx;
+    font-size: 45rpx;
+    text-align: center;
+    margin: 0 10rpx;
+}
+
+.is-input {
+    border: 2rpx solid #3d3d3d !important;
+}
+
+.already-input {
+    border: 2rpx solid #3d3d3d;
+}
+
+.my-card-line {
+    justify-content: center;
+    margin-bottom: 28rpx;
+    align-items: space-between;
+    padding: 0 5vw;
+    height: calc(15vw + 5rpx);
+    width: calc(100% - 10vw);
+}
+
+.ipt {
+    height: 0;
+    width: 0;
+}
+
+.popup-title {
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    font-size: 40rpx;
+    font-weight: 600;
+    color: #222222;
+}
+
+.card {
+    position: relative;
+    margin: 32rpx;
+    border-radius: 12rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 3rpx solid #cecece;
+}
+
+.card--active {
+    border-color: #FF6B6B;
+    color: #FF6B6B;
+}
+
+
+.card--active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    border-width: 28px 28px 28px 0;
+    border-style: solid;
+    border-color: #FF6B6B transparent transparent transparent;
+}
+
+.card__icon {
+    color: var(--td-bg-color-container, #fff);
+    position: absolute;
+    left: 1.5px;
+    top: 1.5px;
+    z-index: 1;
+}
+
+/* 横向布局 */
+.horizontal-box {
+    width: calc(100% - 64rpx);
+    display: flex;
+    align-items: center;
+    margin: 32rpx;
+}
+
+.horizontal-box .card {
+    flex: 1;
+    margin: 0;
+}
+
+.horizontal-box .card {
+    margin-left: 24rpx;
+}
+
+.horizontal-box .card:first-child {
+    margin-left: 0;
+}
+
+.t-radio--block {
+    padding: 20rpx 20rpx !important;
+    text-align: center;
+}
+
+.l-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.t-checkbox {
+    background: transparent !important;
+}
+
+.check-license {
+    display: inline;
+}
+
+.security-box {
+  font-family: AlimamaFangYuanTiVF-Thin;
+    margin-top: 60rpx;
+    font-size: 28rpx;
+    padding-left: 10%;
+    color: #545454;
+    justify-content: center;
+    align-items: flex-start;
+    /* font-family: 'HS San Light', sans-serif; */
+    width: 100%;
+    --td-checkbox-icon-checked-color: #FF6B6B;
+}
+
+.security-box-area {
+    width: 100%;
+    height: 84rpx;
+}

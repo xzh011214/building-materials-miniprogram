@@ -84,8 +84,8 @@
 }
 
 .home-logo {
-  width: 22px;
-  height: 22px;
+  width: 35px;
+  height: 35px;
   border-radius: 7px;
 }
 

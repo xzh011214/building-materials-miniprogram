@@ -1,0 +1,23 @@
+{
+  "name": "building-materials-miniprogram",
+  "version": "1.0.0",
+  "description": "这是一个微信小程序项目，包含首页、分类、购物车、商品详情和我的页面，以及自定义导航栏组件。",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xzh011214/building-materials-miniprogram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xzh011214/building-materials-miniprogram/issues"
+  },
+  "homepage": "https://github.com/xzh011214/building-materials-miniprogram#readme",
+  "dependencies": {
+    "tdesign-miniprogram": "^1.12.3"
+  }
+}

@@ -1,32 +1,164 @@
 <navbar pageTitle="商品详情"></navbar>
 
 <view class="detail-page">
-	<view class="hero-card">
-		<image class="hero-image" src="{{product.image}}" mode="aspectFill"></image>
-		<view class="hero-badge">10</view>
+	<view class="hero-wrap">
+		<swiper class="hero-swiper" circular bindchange="onSwiperChange">
+			<swiper-item wx:for="{{product.images}}" wx:key="*this">
+				<image class="hero-image" src="{{item}}" mode="aspectFill"></image>
+			</swiper-item>
+		</swiper>
+		<view class="hero-indicator">{{currentIndex + 1}}/{{product.images.length}}</view>
+	</view>
+
+	<view class="detail-card price-card">
+		<view class="price-row">
+			<text class="price">¥{{product.price}}</text>
+			<text class="origin">¥{{product.originalPrice}}</text>
+			<text class="brand-tag">品牌自营</text>
+		</view>
+		<text class="title">{{product.name}}</text>
+		<view class="sub-row">
+			<text class="sold">已售 {{product.sold}}</text>
+			<view class="rating">
+				<text>{{product.rating}}分</text>
+				<text class="divider">|</text>
+				<text>{{product.comments}}条评价</text>
+			</view>
+		</view>
+		<view class="share-row">
+			<view class="share-item" bindtap="openSharePopup">
+				<view class="share-icon"></view>
+				<text>分享</text>
+			</view>
+			<view class="share-item" bindtap="toggleCollect">
+				<view class="share-icon {{collected ? 'active' : ''}}"></view>
+				<text>{{collected ? '已收藏' : '收藏'}}</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="detail-card" bindtap="openSpecPopup">
+		<view class="cell">
+			<text class="cell-title">选择</text>
+			<text class="cell-desc">已选：{{selectedSpec}}</text>
+			<text class="cell-arrow">›</text>
+		</view>
+	</view>
+
+	<view class="detail-card" bindtap="openParamPopup">
+		<view class="cell">
+			<text class="cell-title">参数</text>
+			<text class="cell-desc">{{paramPreview}}</text>
+			<text class="cell-arrow">›</text>
+		</view>
 	</view>
 
 	<view class="detail-card">
-		<text class="detail-title">{{product.name}}</text>
-		<view class="detail-price-row">
-			<text class="detail-price">¥{{product.price}}</text>
-			<text class="detail-origin">原价 ¥{{product.originalPrice}}</text>
-		</view>
-		<view class="detail-tags">
-			<text class="tag" wx:for="{{product.tags}}" wx:key="index">{{item}}</text>
+		<view class="cell">
+			<text class="cell-title">保障</text>
+			<view class="service-tags">
+				<view class="service-tag" wx:for="{{product.services}}" wx:key="*this">{{item}}</view>
+			</view>
 		</view>
 	</view>
 
 	<view class="detail-card">
-		<text class="section-title">产品参数</text>
+		<text class="section-title">详情</text>
+		<image
+			class="detail-image"
+			wx:for="{{product.detailImages}}"
+			wx:key="*this"
+			src="{{item}}"
+			mode="widthFix"
+		></image>
+	</view>
+</view>
+
+<view class="detail-footer">
+	<view class="footer-left">
+		<view class="mini-action" bindtap="goService">
+			<view class="mini-icon service"></view>
+			<text>客服</text>
+		</view>
+		<view class="mini-action" bindtap="goCart">
+			<view class="mini-icon cart"></view>
+			<text>购物车</text>
+		</view>
+	</view>
+	<view class="footer-right">
+		<view class="footer-btn ghost" bindtap="openSpecPopup">加入购物车</view>
+		<view class="footer-btn primary" bindtap="openSpecPopup">立即购买</view>
+	</view>
+</view>
+
+<view class="popup-mask" wx:if="{{showSpecPopup}}" bindtap="closeSpecPopup"></view>
+<view class="spec-popup" wx:if="{{showSpecPopup}}">
+	<view class="spec-header">
+		<image class="spec-image" src="{{product.thumb}}" mode="aspectFill"></image>
+		<view class="spec-info">
+			<text class="spec-price">¥{{product.price}}</text>
+			<text class="spec-stock">库存 {{product.stock}} 件</text>
+			<text class="spec-selected">已选：{{selectedSpec}}</text>
+		</view>
+		<text class="spec-close" bindtap="closeSpecPopup">×</text>
+	</view>
+	<view class="spec-section">
+		<text class="spec-title">规格</text>
+		<view class="spec-options">
+			<view
+				class="spec-option {{selectedSpec === item ? 'active' : ''}}"
+				wx:for="{{product.specs}}"
+				wx:key="*this"
+				data-spec="{{item}}"
+				bindtap="selectSpec"
+			>
+				{{item}}
+			</view>
+		</view>
+	</view>
+	<view class="spec-section">
+		<text class="spec-title">数量</text>
+		<view class="qty-stepper">
+			<view class="step-btn" bindtap="decreaseQty">-</view>
+			<text class="qty-value">{{quantity}}</text>
+			<view class="step-btn" bindtap="increaseQty">+</view>
+		</view>
+	</view>
+	<view class="spec-footer">
+		<view class="footer-btn ghost" bindtap="addToCart">加入购物车</view>
+		<view class="footer-btn primary" bindtap="buyNow">立即购买</view>
+	</view>
+</view>
+
+<view class="popup-mask" wx:if="{{showParamPopup}}" bindtap="closeParamPopup"></view>
+<view class="param-popup" wx:if="{{showParamPopup}}">
+	<view class="param-header">
+		<text>产品参数</text>
+		<text class="param-close" bindtap="closeParamPopup">×</text>
+	</view>
+	<view class="param-list">
 		<view class="param-row" wx:for="{{product.params}}" wx:key="name">
 			<text class="param-name">{{item.name}}</text>
 			<text class="param-value">{{item.value}}</text>
 		</view>
 	</view>
+	<view class="param-footer" bindtap="closeParamPopup">完成</view>
 </view>
 
-<view class="detail-footer">
-	<view class="footer-action ghost">加入购物车</view>
-	<view class="footer-action primary">立即购买</view>
+<view class="popup-mask" wx:if="{{showSharePopup}}" bindtap="closeSharePopup"></view>
+<view class="share-popup" wx:if="{{showSharePopup}}">
+	<text class="share-title">分享给</text>
+	<view class="share-options">
+		<view
+			class="share-option"
+			wx:for="{{shareOptions}}"
+			wx:key="name"
+			data-name="{{item.name}}"
+			bindtap="shareAction"
+		>
+			<view class="share-circle {{item.className}}"></view>
+			<text>{{item.name}}</text>
+		</view>
+	</view>
+	<view class="share-cancel" bindtap="closeSharePopup">取消</view>
 </view>

@@ -18,17 +18,17 @@ page {
 .profile-card {
   display: flex;
   gap: 14px;
-  background: linear-gradient(135deg, #1f2a37 0%, #2a3748 100%);
+  background: linear-gradient(135deg, #0ab68a 0%, #06a57e 100%);
   border-radius: 18px;
-  padding: 16px;
+  padding: 18px 16px;
   color: #ffffff;
-  box-shadow: 0 18px 30px rgba(24, 44, 76, 0.22);
+  box-shadow: 0 18px 30px rgba(6, 165, 126, 0.28);
 }
 
 .profile-avatar {
   width: 56px;
   height: 56px;
-  border-radius: 18px;
+  border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -49,30 +49,17 @@ page {
   opacity: 0.8;
 }
 
-.profile-stats {
-  display: flex;
-  justify-content: space-between;
+.profile-action {
   margin-top: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  font-size: 11px;
+  display: inline-block;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.stat-num {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.stat-label {
-  font-size: 10px;
-  opacity: 0.8;
-}
-
-.service-card {
+.section-card {
   margin-top: 14px;
   background: #ffffff;
   border-radius: 16px;
@@ -80,56 +67,96 @@ page {
   box-shadow: 0 12px 24px rgba(24, 44, 76, 0.08);
 }
 
-.service-title {
-  font-size: 14px;
-  font-weight: 600;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 12px;
 }
 
-.service-grid {
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-more {
+  font-size: 11px;
+  color: #9aa7b8;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 6px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #4a586a;
+}
+
+.icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #f2f5fb;
+}
+
+.icon-circle.orange {
+  background: #fff1e6;
+}
+
+.icon-circle.blue {
+  background: #e8f1ff;
+}
+
+.icon-circle.cyan {
+  background: #e6f7ff;
+}
+
+.icon-circle.red {
+  background: #ffe9e9;
+}
+
+.icon-circle.star {
+  background: #e8f0ff;
+}
+
+.icon-circle.clock {
+  background: #fff7e6;
+}
+
+.icon-circle.pin {
+  background: #e6fffb;
+}
+
+.icon-circle.ticket {
+  background: #f0e9ff;
+}
+
+.icon-circle.service {
+  background: #e8f7ff;
+}
+
+.icon-circle.setting {
+  background: #eef1f6;
+}
+
+.tag-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
-.service-item {
+.tag-item {
   background: #f6f8fc;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px 6px;
   text-align: center;
-}
-
-.service-icon {
   font-size: 11px;
   color: #4a586a;
-}
-
-.menu-card {
-  margin-top: 14px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 4px 0;
-  box-shadow: 0 12px 24px rgba(24, 44, 76, 0.08);
-}
-
-.menu-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  border-bottom: 1px solid #eef2f7;
-}
-
-.menu-row:last-child {
-  border-bottom: none;
-}
-
-.menu-text {
-  font-size: 13px;
-  color: #1f2a37;
-}
-
-.menu-arrow {
-  font-size: 12px;
-  color: #9aa7b8;
 }
