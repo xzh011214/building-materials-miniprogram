@@ -1,0 +1,4 @@
+<view class="page">
+  <text class="title">浏览足迹</text>
+  <view class="card">暂无浏览记录</view>
+</view>

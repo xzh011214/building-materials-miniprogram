@@ -2,6 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/login/index",
+    "pages/favorite/index",
+    "pages/footprint/index",
+    "pages/address/index",
+    "pages/address-edit/index",
+    "pages/invoice/index",
+    "pages/invoice-detail/index",
+    "pages/settings/index",
     "pages/category-detail/category-detail",
     "pages/goods-detail/goods-detail",
     "pages/cart/cart",

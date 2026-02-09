@@ -1,0 +1,7 @@
+<view class="page">
+  <text class="title">发票中心</text>
+  <view class="card">
+    <view class="row">暂无发票记录</view>
+    <view class="btn" bindtap="goDetail">查看发票详情</view>
+  </view>
+</view>

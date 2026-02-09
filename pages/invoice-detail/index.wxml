@@ -1,0 +1,4 @@
+<view class="page">
+  <text class="title">发票详情</text>
+  <view class="card">暂无发票详情</view>
+</view>

@@ -104,6 +104,14 @@ page {
   height: 36px;
   border-radius: 12px;
   background: #f2f5fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-image {
+  width: 24px;
+  height: 24px;
 }
 
 .icon-circle.orange {
